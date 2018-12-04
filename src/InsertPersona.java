@@ -65,7 +65,6 @@ public class InsertPersona extends HttpServlet {
 		persone = getResulsetPersone();
 		/**
 		 * inserire chiamata a .jsp
-		 * 
 		 */
 		System.out.println(persone.toString());
 	}

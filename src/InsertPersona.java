@@ -25,13 +25,6 @@ public class InsertPersona extends HttpServlet {
      */
     public InsertPersona() {
         super();
-        /*
-		try {
-			japan = DriverManager.getConnection("jdbc:mysql://localhost:3306/japan", "gandalf", "mellon");
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-        */
     }
 
 	/**
@@ -55,7 +48,8 @@ public class InsertPersona extends HttpServlet {
 	 * 
 	 * -	istanzia un'oggetto Persona
 	 * -	legge le proprietà dal POST
-	 * -	chiama doInsert() per aggiungere il record al DB
+	 * -	doInsert(Persona persona) per aggiungere il record al DB
+	 * -	persone = getResult() per avere il recordset su un ArrayList
 	 * 
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -71,6 +65,8 @@ public class InsertPersona extends HttpServlet {
 		persone = getResulsetPersone();
 		/**
 		 * inserire chiamata a .jsp
+		 * 
+		 * 
 		 */
 		System.out.println(persone.toString());
 	}

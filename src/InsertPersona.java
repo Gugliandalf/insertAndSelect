@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class InsertPersona
@@ -55,6 +56,11 @@ public class InsertPersona extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ArrayList<Persona> persone;
 		Persona persona = new Persona();
+		HttpSession session;
+		
+		session = request.getSession();
+		System.out.println( session.toString());
+		
 		persona.setCognome(request.getParameter("cognome"));
 		persona.setNome(request.getParameter("nome"));
 		persona.setSalario(request.getParameter("salario"));
@@ -63,11 +69,14 @@ public class InsertPersona extends HttpServlet {
 		
 		doInsert(persona);
 		persone = getResulsetPersone();
+		System.out.println(persone.toString());
+
 		/**
 		 * inserire chiamata a .jsp
 		 * 
 		 */
-		System.out.println(persone.toString());
+		session.setAttribute("persone", persone);
+		
 	}
 	
 	/**
